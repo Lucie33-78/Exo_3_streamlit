@@ -1,7 +1,9 @@
 streamlit==1.40.2
+streamlit-authenticator==0.4.1
 pandas==1.5.3
-numpy>=1.21.0,<1.24.0
-matplotlib==3.9.3
-scikit-learn==1.5.2
-seaborn==0.12.2
-altair==5.5.0
+numpy==1.23.5
+PyJWT==2.10.1
+PyYAML==6.0.2
+extra-streamlit-components==0.1.71
+captcha==0.6.0
+bcrypt==4.2.1
