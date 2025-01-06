@@ -7,5 +7,5 @@ PyYAML==6.0.2
 extra-streamlit-components==0.1.71
 captcha==0.6.0
 bcrypt==4.2.1
-
+streamlit-option-menu==0.3.2
 
