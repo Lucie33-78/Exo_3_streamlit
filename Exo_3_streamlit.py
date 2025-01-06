@@ -1,10 +1,17 @@
 import streamlit as st
 from streamlit_authenticator import Authenticate
+from streamlit_option_menu import option_menu
 
-# cd "C:\Users\clegu\Desktop\DATA\2 - Exercices\Streamlit"
+# cd "C:\Users\clegu\Desktop\DATA\2 - Exercices\Streamlit\Exo_3_streamlit"
 # streamlit run Exo_3_streamlit.py
 
 # Nos données utilisateurs doivent respecter ce format
+
+# Création du menu qui va afficher les choix qui se trouvent dans la variable options
+selection = option_menu(
+            menu_title=None,
+            options = ["Accueil", "Photos"]
+        )
 
 lesDonneesDesComptes = {'usernames': {'utilisateur': {'name': 'utilisateur',
    'password': 'utilisateurMDP',
@@ -26,16 +33,15 @@ authenticator = Authenticate(
     30, # Le nombre de jours avant que le cookie expire 
 )
 
-authenticator.login() # modul d'authentification
-
 def accueil():
       st.title("Bienvenu sur ma page") # Arrivée sur la page d'accueil
       st.image("https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif") # Affiche l'image
 
+authenticator.login() # modul d'authentification
+
 if st.session_state["authentication_status"]:
     accueil()
     st.sidebar.title(f"Bienvenue")
-    st.title("Bienvenu sur ma page") # Arrivée sur la page d'accueil
     authenticator.logout("Déconnexion")  # Le bouton de déconnexion
     col1, col2, col3 = st.columns(3)
     with col1:
@@ -55,3 +61,5 @@ elif st.session_state["authentication_status"] is False:
     st.error("L'username ou le password est/sont incorrect")
 elif st.session_state["authentication_status"] is None:
     st.warning('Les champs username et mot de passe doivent être remplie')
+
+
